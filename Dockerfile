@@ -1,8 +1,14 @@
-# Use a specific version of Tomcat as base image
-FROM tomcat:8.0.20-jre8
+# Use the official Tomcat base image
+FROM tomcat:10.0-jdk11-adoptopenjdk-hotspot
 
-# Expose port 8080 to access the application
+# Set environment variables
+ENV APP_HOME /usr/local/tomcat
+
+# Copy the .war file from the target directory to the Tomcat webapps folder
+COPY target/*.war $APP_HOME/webapps/
+
+# Expose port 8080 to the host machine
 EXPOSE 8080
 
-# Copy the WAR file from the target directory of your Maven project to the Tomcat webapps directory
-COPY target/my-webapp-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
+# Start Tomcat
+CMD ["catalina.sh", "run"]
