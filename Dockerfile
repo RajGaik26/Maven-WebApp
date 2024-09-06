@@ -1,5 +1,5 @@
-# Use the official Tomcat base image
-FROM tomcat:10.0-jdk11-adoptopenjdk-hotspot
+# Use the official Tomcat base image with JDK 21
+FROM tomcat:10.1-jdk21-temurin
 
 # Set environment variables
 ENV APP_HOME /usr/local/tomcat
@@ -12,3 +12,4 @@ EXPOSE 8080
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
+
