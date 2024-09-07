@@ -19,7 +19,7 @@ services:
     container_name: my_db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: app_db
+      MYSQL_DATABASE: myapp_db
     volumes:
       - db_data:/var/lib/mysql
     ports:
